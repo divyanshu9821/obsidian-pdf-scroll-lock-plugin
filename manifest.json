@@ -1,0 +1,8 @@
+{
+    "id": "lock-pdf",
+    "name": "Lock PDF",
+    "author": "Divyanshu",
+    "version": "1.0.0",
+    "description": "Lock the pdfs from scrolling",
+    "main": "main.js"
+}
