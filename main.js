@@ -41,7 +41,7 @@ function removeLockingMechanism () {
     document.querySelectorAll('.scroll-toggled-container').forEach(element => {
         element.style.overflow = 'auto'
         element.style.pointerEvents = "auto";
-        element.classList.remove('scroll-toggle-container')
+        element.classList.remove('scroll-toggled-container')
     })
 }
 
@@ -54,7 +54,17 @@ function cb () {
 module.exports = class LockPDF extends Plugin {
 
     onload () {
-        this.observer = new MutationObserver(cb)
+        document.querySelectorAll('.pdf-embed').forEach(setLockingMechanism)
+
+        this.observer = new MutationObserver(mutations => {
+            mutations.forEach(mutation => {
+                mutation.addedNodes.forEach(node => {
+                    if (node.nodeType == 1 && node.classList.contains('pdf-container')) {
+                        setLockingMechanism(node.parentElement)
+                    }
+                })
+            })
+        })
         this.observer.observe(document.body, { childList: true, subtree: true })
     }
 
