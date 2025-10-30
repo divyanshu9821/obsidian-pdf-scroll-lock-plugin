@@ -1,6 +1,6 @@
 const { Plugin } = require('obsidian')
 
-function setLockingMechanism (element) {
+function setLockingMechanism(element) {
     const container = element.querySelector('.pdf-viewer-container')
     const toolbar = element.querySelector('.pdf-toolbar-left')
 
@@ -20,7 +20,7 @@ function setLockingMechanism (element) {
 
     let locked = false
 
-    function toggle () {
+    function toggle() {
         locked = !locked
         container.style.overflow = locked ? "hidden" : "auto"
         container.style.pointerEvents = locked ? "none" : "auto";
@@ -33,7 +33,7 @@ function setLockingMechanism (element) {
     toolbar.prepend(button)
 }
 
-function removeLockingMechanism () {
+function removeLockingMechanism() {
     document.querySelectorAll('.scroll-toggle-btn').forEach(element => {
         element.remove()
     });
@@ -45,15 +45,10 @@ function removeLockingMechanism () {
     })
 }
 
-function cb () {
-    const pdfs = document.querySelectorAll('.pdf-embed')
-    pdfs.forEach(setLockingMechanism)
-}
-
 
 module.exports = class LockPDF extends Plugin {
 
-    onload () {
+    onload() {
         document.querySelectorAll('.pdf-embed').forEach(setLockingMechanism)
 
         this.observer = new MutationObserver(mutations => {
@@ -68,7 +63,7 @@ module.exports = class LockPDF extends Plugin {
         this.observer.observe(document.body, { childList: true, subtree: true })
     }
 
-    onunload () {
+    onunload() {
         this.observer.disconnect()
         removeLockingMechanism()
     }
