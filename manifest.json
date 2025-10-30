@@ -1,9 +1,10 @@
 {
-    "id": "pdf-scroll-lock-plugin",
+    "id": "pdf-scroll-lock",
     "name": "PDF Scroll Lock",
     "author": "Divyanshu",
     "version": "1.0.0",
     "minVersion": "1.9.14",
     "description": "Lock the pdfs from scrolling",
-    "main": "main.js"
+    "main": "main.js",
+    "isDesktopOnly": true
 }
