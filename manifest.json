@@ -3,8 +3,7 @@
     "name": "PDF Scroll Lock",
     "author": "Divyanshu",
     "version": "1.0.0",
-    "minVersion": "1.9.14",
-    "description": "Lock the pdfs from scrolling",
-    "main": "main.js",
+    "minAppVersion": "1.9.14",
+    "description": "Lock the pdfs from scrolling.",
     "isDesktopOnly": true
 }
