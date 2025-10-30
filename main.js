@@ -19,12 +19,13 @@ function setLockingMechanism(element) {
 
     const button = document.createElement("button")
     button.innerHTML = lockedIcon
-    // button.innerHTML = "🔒"
-    button.style.fontSize = "1rem"
-    button.style.padding = "0px"
-    button.style.background = "none"
-    button.style.opacity = "0.6"
-    button.style.boxShadow = "none"
+    Object.assign(button.style, {
+        fontSize: "1rem",
+        padding: "0px",
+        background: "none",
+        opacity: "0.6",
+        boxShadow: "none"
+    })
     button.setAttribute('aria-label', "toggle scrolling")
 
     button.classList.add('scroll-toggle-btn') // helpful in handling duplicacy
