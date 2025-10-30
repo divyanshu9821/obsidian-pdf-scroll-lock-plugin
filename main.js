@@ -38,6 +38,7 @@ function setLockingMechanism(element) {
         container.style.overflow = locked ? "hidden" : "auto"
         container.style.pointerEvents = locked ? "none" : "auto";
         button.innerHTML = locked ? lockedIcon : unlockedIcon
+        updateTheme();
     }
 
     toggle()
@@ -45,7 +46,6 @@ function setLockingMechanism(element) {
     button.addEventListener("click", toggle)
     toolbar.prepend(button)
 
-    updateTheme();
 }
 
 function removeLockingMechanism() {
